@@ -1,0 +1,104 @@
+/* IMPORT FONTS */
+@import url('../font/ostrich-sans.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-family: 'Ostrich Sans', sans-serif;
+    font-weight: 900;
+    font-size: 4.5em;
+}
+
+p.intro-p {
+    font-size: 1.1em;
+}
+
+img#logo-img {
+    width: 100px;
+    height: auto;
+    margin: 15px 0;
+}
+
+span.bold {
+    font-weight: 700;
+}
+
+#accord-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.caption-text {
+    font-size: .8em;
+}
+
+img#graph-img {
+    width: 70%;
+    justify-content: center;
+}
+
+h1.animate__animated.animate__fadeInDown {
+    --animate-duration: 650ms;
+}
+
+p.animate__animated.animate__fadeInDown {
+    --animate-duration: 1s;
+}
+
+rect.bar {
+    fill: rgb(166, 206, 227);
+}
+
+footer {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
+a:hover {
+    color: black;
+    font-weight: 900;
+}
+
+
+/* PATH STYLING: https://bl.ocks.org/jasondavies/1341281 */
+.background path {
+    fill: none;
+    stroke: #808080;
+    shape-rendering: crispEdges; 
+}
+
+.foreground path {
+    fill: none;
+    stroke: steelblue;
+    opacity: .05;
+}
+
+/* BRUSH STYLING: /* https://bl.ocks.org/jasondavies/1341281 */
+.brush .extent {
+    fill-opacity: .3;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+/*  AXIS STYLING: https://bl.ocks.org/jasondavies/1341281 */
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}

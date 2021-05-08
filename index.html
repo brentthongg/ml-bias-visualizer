@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta Information -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <title>Machine Learning Bias Visualizer</title>
+
+        <!-- JQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" 
+              rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
+              crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" 
+                crossorigin="anonymous">
+        </script>
+
+        <!-- d3.js -->
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="assets/js/datavis.js"></script>
+
+        <!-- animate.css -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        <!-- Custom styling and scripts -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <script src="assets/js/scripts.js"></script>
+        
+    </head>
+
+    <body>
+         <!-- Places logo and makes sure it's aligned with the content  --> 
+        <div class="container">
+            <div id="top-bar" class="row">
+                <div class="col">
+                    <img id="logo-img" src="assets/images/logo.png" alt="logo" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Houses the introduction with the main interactive component.  --> 
+        <div id="main-container" class="container">
+            <div id="main-intro" class="row">
+                <div id="main-intro-paragraph" class="col-sm-12 col-lg-5">
+                    <h1 id="intro-h1" class="animate__animated animate__fadeInDown">Machine Learning Bias Visualizer</h1>
+                    <p class="intro-p animate__animated animate__fadeInDown">
+                        While we've learned how to develop algorithms that strengthen the quality of the decisions we make everyday, there is more research being done in seeing how these <span class="bold">algorithms within machine learning</span> can be biased based on the datasets that we use to train the models.
+                    </p>
+                    <p class="intro-p animate__animated animate__fadeInDown">
+                        Some states use a decision support tool called the <span class="bold">COMPAS risk assessment tool</span>, which attempts to give a rating of how likely a defendant will commit another crime again in the future (reoffending). However, it is twice as likely to incorrectly classify black defendants as being higher risk than white defendants. See how this could potentially happen by interacting with the graph on the right, and <span class="bold">scroll down to learn more</span>.
+                    </p>
+                    <p class="intro-p animate__animated animate__fadeInDown">
+                        Note that 1.0 is "African American," 0.8 is Asian, 0.6 is Caucasian, 0.4 is Hispanic, and 0.2 is Native American. 0 is "other".
+                    </p>
+                </div>
+                <div id="main-intro-graphics" class="col-sm-12 col-lg-7">
+                </div>
+            </div>
+        </div>
+        <!-- Black vs. White people --> 
+        <div class="container">
+            <div id="story1" class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-sm-12 col-lg-6">
+                    <p class="intro-p await-animation">
+                        The model is learning from biased data, which leads to biased results. Look at the two graphs below. They are both pulled from the COMPAS dataset, and it shows that the white people are more likely to be categorized as lower risk.
+                    </p>
+                </div>
+
+                <div class="col-lg-3"></div>
+            </div>
+            <br /><br /><br />
+            <div id="story1" class="row">
+                <div id="story1-graph-1" class="col-xs-12 col-sm-12 col-lg-6">
+                </div>
+
+                <div id="story1-graph-2" class="col-xs-12 col-sm-12 col-lg-6">
+                </div>
+            </div>
+        </div>
+        <br /><br /><br />
+        <!-- Algorithm-in-the-Loop explanation  --> 
+        <div class="container">
+            <div class="row align-items-center await-animation">
+                <div class="col-sm-6 col-lg-6">
+                    <p>So how are we currently addressing this issue? One researcher thinks we should design the decision support tool such that it is created for the purpose of improving human decision making rather than creating the best prediction “in the abstract.” (<a href="https://scholar.harvard.edu/files/19-fat.pdf" target="_blank">Disparate Interactions: An Algorithm-in-the-Loop Analysis of Fairness in Risk Assessments.</a>)</p>
+                    <p>In the image to the right, see how you can use an "algorithm-in-the-loop" type system to make better judgements. This type of system looks at how decision support tools like the COMPAS risk assessment scores should be used to aid human decision making.</p>
+                </div>
+                
+                <div class="col-sm-6 col-lg-6 text-center mx-auto">
+                    <img id="graph-img" src="/assets/images/graph.png" 
+                         alt="Graph that shows algorithm-in-the-loop method leads to lower false positive rates in risk" 
+                    />
+                    <p class="caption-text text-center">This image is taken from the Algorithm-in-the-Loop paper. It shows that when humans and algorithm works together, it leads to lower false positives and higher rewards than just humans making predictions on risk.</p>
+                </div>
+                
+            </div>
+            <div id="story2" class="row">
+                <div id="story2-graph-1" class="col-xs-12 col-sm-12 col-lg-6">
+                </div>
+
+                <div id="story2-graph-2" class="col-xs-12 col-sm-12 col-lg-6">
+                </div>
+            </div>
+        </div>
+
+        <!-- Houses the accordion for all the diff questions. --> 
+        <!-- CITATION: https://getbootstrap.com/docs/5.0/components/accordion/ -->
+        <div id="accord-container" class="container await-animation">
+            <p>Here are some guidelines on how to design your systems to have less bias:</p>
+            <p>Guidelines are from: 
+                <a href="https://www.brookings.edu/research/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/">
+                    https://www.brookings.edu/research/algorithmic-bias-detection-and-mitigation-best-practices-and-policies-to-reduce-consumer-harms/
+                </a>
+            </p>
+
+            <div class="accordion" id="design-considerations">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                        Who is the audience for the algorithm and who will be most affected by it?
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                      It's important to think about who will be affected by the algorithm that's being created. For example, if you are creating a decision support tool similar to COMPAS, which demographic is impacted the most by our justice system? In this case, we know that Black Americans are unfairly targeted by our justice system, and so making sure that it is designed such that these biases are accounted for is important to creating a more fair and robust algorithm.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        Is the training data sufficiently diverse and reliable?
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        Considering if the training data is sufficently diverse and reliable is critical to hopefully making sure that the model that is trained from the data doesn’t become biased itself. Think about if your data could be biased from human biases such as gender wage gap, racial biases, etc. If you consider that there might be room for bias, take active steps to mitigate that bias when developing your algorithm. 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        Which groups are we worried about when it comes to training data errors, disparate treatment, and impact?
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        Assume that your training data contains bias, and try to think about who might be affected by those biases. Be aware of your model and the context in which it's going ot be used. For example, if you're building some model that has to do with COVID treatment, remember that Black and Brown populations have paid a significantly heavier price because of the lack of treatment as compared to White counterparts. 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                          What’s the feedback loop for the algorithm for developers, internal partners and customers?
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                        <div class="accordion-body">
+                            Consider how this algorithm learns, and stakeholders (developers, partners, users, etc.) will be able to give feedback and iterate upon the algorithm. Figuring out how to improve the model by being able to recognize these biases is important for correcting the behavior of the model. This will help create a more robust system.
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                        Will the algorithm have implications for cultural groups and play out differently in cultural contexts?
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                        <div class="accordion-body">
+                            Make sure that you consider the cultural sensitivity of the system that you are designing for. The best way to do this is to have a diverse team, and anticipate which groups are going to be affected by your algorithm. If you are not sure, having BIPOC and LGBTQ+ team members who are often under represented can help to ensure that you are always being culturally sensitive and aware.
+                        </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+
+        <div class="container">
+            <footer>
+                You reached the end! Thanks for reading all the way through.
+            </footer>
+        </div>
+        
+    </body>
+
+</html>
