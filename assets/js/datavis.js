@@ -177,7 +177,7 @@ function createDataVis(race, divId) {
     // largest y value's bar is the height.
     var y = d3.scale.linear().range([height, 0]);
 
-    let url = `../assets/data/race_to_score_${race}.csv`;
+    let url = `https://brenthong.com/ml-bias-visualizer/assets/data/race_to_score_${race}.csv`;
     d3.csv(url, (_, data) => {
         data.forEach((d) => {
             d.count = +d.count;
